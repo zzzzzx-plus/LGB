@@ -1,4 +1,4 @@
-python==3.11
+python==3.11.0
 efficientnet_pytorch==0.7.1
 joblib==1.4.2
 matplotlib==3.8.0
