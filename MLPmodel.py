@@ -99,9 +99,19 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt
 import math
+import os
 
 # 加载模型
-model = joblib.load('MLPmodel.pkl')
+# 获取当前文件的目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 组合当前目录与模型文件名，生成模型的完整路径
+model_path = os.path.join(current_dir, 'MLPmodel.pkl')
+# 打开并加载模型
+with open(model_path, 'rb') as file:
+    model = joblib.load(file)  # 使用 pickle 加载模型文件
+
+# # 加载模型
+# model = joblib.load('MLPmodel.pkl')
 
 # 特征名称
 feature_names = [
