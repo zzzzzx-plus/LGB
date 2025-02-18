@@ -73,7 +73,7 @@ if st.button("Prediction"):
     shap_values = explainer.shap_values(features)
 
     # 获取 SHAP 值，并分别计算正负两边贡献值最大的特征
-    shap_values_single = shap_values[0]  # 当前样本的 SHAP 值
+    shap_values_single = np.array(shap_values[0]).flatten()
     top_positive_idx = tuple(shap_values_single.argsort()[-3:][::-1]) # 贡献值最大的 3 个正向特征
     top_negative_idx = tuple(shap_values_single.argsort()[:3])  # 贡献值最大的 3 个负向特征
 
