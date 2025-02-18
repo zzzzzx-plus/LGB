@@ -174,8 +174,8 @@ if st.button("Prediction"):
 
     # 获取 SHAP 值，并分别计算正负两边贡献值最大的特征
     shap_values_single = shap_values[0]  # 当前样本的 SHAP 值
-    top_positive_idx = shap_values_single.argsort()[-3:][::-1]  # 贡献值最大的 3 个正向特征
-    top_negative_idx = shap_values_single.argsort()[:3]  # 贡献值最大的 3 个负向特征
+    top_positive_idx = tuple(shap_values_single.argsort()[-3:][::-1])  # 贡献值最大的 3 个正向特征
+    top_negative_idx = tuple(shap_values_single.argsort()[:3])  # 贡献值最大的 3 个负向特征
 
     # 构造特征名称列表，只保留正负两边前两名特征，其余为空字符串
     top_features = set(top_positive_idx).union(set(top_negative_idx))
